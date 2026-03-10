@@ -5,56 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grafito Muebles | Diseño a medida</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #2d3436; color: #e5e7eb; font-family: sans-serif; }
-        .gold-text { color: #d4af37; }
-        .gold-border { border-color: #d4af37; }
-        .gold-bg { background-color: #d4af37; }
-        .graphite-dark { background-color: #1e2124; }
+        :root {
+            --grafito: #262626;
+            --grafito-oscuro: #1a1a1a;
+            --dorado: #b8975a;
+            --dorado-suave: #d4af37;
+        }
+        body { 
+            background-color: var(--grafito); 
+            color: #ffffff; 
+            font-family: 'Inter', sans-serif;
+            background-image: radial-gradient(circle at 2px 2px, #333 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .border-gold { border-color: var(--dorado); }
+        .text-gold { color: var(--dorado); }
+        .bg-gold { background-color: var(--dorado); }
+        
+        .card-mueble {
+            background-color: var(--grafito-oscuro);
+            border: 1px solid rgba(184, 151, 90, 0.3);
+            transition: all 0.3s ease;
+        }
+        .card-mueble:hover {
+            border-color: var(--dorado);
+            transform: translateY(-5px);
+        }
     </style>
 </head>
-<body>
-    <header class="p-6 flex justify-between items-center border-b gold-border">
-        <h1 class="text-2xl font-bold gold-text uppercase">Grafito Muebles</h1>
-        <img src="r.png" alt="Logo Grafito" class="h-16 w-auto">
-            <a href="#" class="hover:gold-text">INICIO</a>
-            <a href="#" class="hover:gold-text">CATÁLOGO</a>
-            <a href="#" class="hover:gold-text">CONTACTO</a>
+<body class="min-h-screen">
+
+    <header class="p-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-gold font-serif text-xl tracking-widest border-b border-gold pb-1 italic">MUEBLES DE DISEÑO</div>
+        <nav class="flex gap-6 text-xs tracking-widest text-gray-400">
+            <a href="#" class="hover:text-gold transition">INICIO</a>
+            <a href="#" class="hover:text-gold transition">NOSOTROS</a>
+            <a href="#" class="hover:text-gold transition">CATÁLOGO</a>
+            <a href="#" class="hover:text-gold transition">PROYECTOS</a>
+            <a href="#" class="hover:text-gold transition">CONTACTO</a>
         </nav>
     </header>
 
-    <section class="py-20 text-center px-4">
-        <h2 class="text-4xl md:text-6xl font-serif gold-text mb-4 uppercase italic">Tu diseño, tu espacio, tu mueble</h2>
-        <p class="text-xl mb-8 text-gray-400">Piezas únicas diseñadas a medida con terminaciones premium.</p>
-        <a href="https://wa.me/549249362196" class="gold-bg text-black px-8 py-4 rounded-sm font-bold hover:bg-yellow-600 transition uppercase tracking-widest">Consultar por WhatsApp</a>
-    </section>
-
-    <div class="max-w-6xl mx-auto px-6 mb-10">
-        <h3 class="text-2xl gold-text mb-8 border-l-4 gold-border pl-4 uppercase">Nuestro Catálogo</h3>
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="graphite-dark p-4 border gold-border rounded-sm">
-                <div class="h-56 bg-gray-800 mb-4 flex items-center justify-center text-gray-600 italic">Foto Cocina</div>
-                <h4 class="gold-text text-lg mb-2 uppercase">Amoblamientos de Cocina</h4>
-                <p class="text-sm text-gray-400 mb-4">Diseños funcionales en melamina y madera.</p>
-                <button class="text-xs border gold-border px-4 py-2 hover:gold-bg hover:text-black transition">VER MÁS</button>
-            </div>
-            <div class="graphite-dark p-4 border gold-border rounded-sm">
-                <div class="h-56 bg-gray-800 mb-4 flex items-center justify-center text-gray-600 italic">Foto Placard</div>
-                <h4 class="gold-text text-lg mb-2 uppercase">Placards y Vestidores</h4>
-                <p class="text-sm text-gray-400 mb-4">Optimización total de tu espacio de guardado.</p>
-                <button class="text-xs border gold-border px-4 py-2 hover:gold-bg hover:text-black transition">VER MÁS</button>
-            </div>
-            <div class="graphite-dark p-4 border gold-border rounded-sm">
-                <div class="h-56 bg-gray-800 mb-4 flex items-center justify-center text-gray-600 italic">Foto Living</div>
-                <h4 class="gold-text text-lg mb-2 uppercase">Muebles de Living</h4>
-                <p class="text-sm text-gray-400 mb-4">Racks de TV, mesas de centro y estanterías.</p>
-                <button class="text-xs border gold-border px-4 py-2 hover:gold-bg hover:text-black transition">VER MÁS</button>
-            </div>
-        </section>
+    <div class="flex justify-center my-8">
+        <img src="r.png" alt="Grafito Muebles" class="h-32 md:h-40 object-contain drop-shadow-2xl">
     </div>
 
-    <footer class="p-10 text-center border-t gold-border mt-20 text-gray-500 text-sm">
-        <p>© 2026 GRAFITO MUEBLES - TANDIL, BS. AS.</p>
+    <section class="text-center px-4 mb-16">
+        <h1 class="text-3xl md:text-5xl font-serif text-gold mb-6 uppercase tracking-wider">Tu diseño, tu espacio, tu mueble</h1>
+        
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-gold p-2 rounded-lg">
+            <div class="relative group overflow-hidden rounded-md h-[400px] bg-neutral-800 flex items-center justify-center">
+                <span class="text-gray-600 italic">Foto Principal</span>
+            </div>
+            
+            <div class="text-left p-6">
+                <h2 class="text-2xl font-serif text-gold mb-4 uppercase">Muebles únicos, diseñados a tu medida</h2>
+                <p class="text-gray-400 mb-8 font-light leading-relaxed">
+                    Creamos piezas que se adaptan perfectamente a tu hogar, con materiales de la más alta calidad. Contanos tu idea y la hacemos realidad.
+                </p>
+                <button class="border border-gold text-gold px-8 py-3 rounded-full hover:bg-gold hover:text-black transition-all duration-500 uppercase text-xs tracking-widest font-bold">
+                    Solicitar Presupuesto Personalizado
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 mb-20">
+        <div class="flex items-center gap-4 mb-10">
+            <h3 class="text-gold font-serif text-2xl uppercase tracking-widest">Nuestro Catálogo</h3>
+            <div class="h-[1px] bg-gold flex-grow opacity-50"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="card-mueble p-4 rounded-sm text-center">
+                <div class="h-48 bg-neutral-800 mb-4 rounded-sm flex items-center justify-center">
+                   <span class="text-xs text-gray-600 uppercase italic">Foto Cocina</span>
+                </div>
+                <h4 class="text-gold text-sm tracking-widest mb-3 uppercase">Muebles de Cocina</h4>
+                <button class="text-[10px] border border-gold px-4 py-1 rounded-full text-gold hover:bg-gold hover:text-black transition">VER MÁS</button>
+            </div>
+            <div class="card-mueble p-4 rounded-sm text-center">
+                <div class="h-48 bg-neutral-800 mb-4 rounded-sm flex items-center justify-center">
+                    <span class="text-xs text-gray-600 uppercase italic">Foto Dormitorio</span>
+                </div>
+                <h4 class="text-gold text-sm tracking-widest mb-3 uppercase">Placards y Vestidores</h4>
+                <button class="text-[10px] border border-gold px-4 py-1 rounded-full text-gold hover:bg-gold hover:text-black transition">VER MÁS</button>
+            </div>
+            <div class="card-mueble p-4 rounded-sm text-center">
+                <div class="h-48 bg-neutral-800 mb-4 rounded-sm flex items-center justify-center">
+                    <span class="text-xs text-gray-600 uppercase italic">Foto Living</span>
+                </div>
+                <h4 class="text-gold text-sm tracking-widest mb-3 uppercase">Muebles de Living</h4>
+                <button class="text-[10px] border border-gold px-4 py-1 rounded-full text-gold hover:bg-gold hover:text-black transition">VER MÁS</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-gold bg-black/30 py-10 px-6 text-center">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-left border-l border-gold pl-6">
+                <h4 class="text-gold font-serif text-xl uppercase mb-2">¿Tenés alguna pregunta?</h4>
+                <a href="https://wa.me/5492494000000" class="flex items-center gap-3 bg-neutral-900 border border-gold px-6 py-3 rounded hover:bg-gold hover:text-black transition group">
+                    <span class="text-sm tracking-widest uppercase font-bold">Contáctanos por WhatsApp</span>
+                </a>
+            </div>
+            <div class="text-gray-500 text-[10px] tracking-[0.2em] uppercase">
+                © 2026 Grafito Muebles. Tandil, Buenos Aires.
+            </div>
+        </div>
     </footer>
+
 </body>
 </html>
