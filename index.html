@@ -3,117 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grafito Muebles | Diseño a medida</title>
+    <title>Grafito Muebles | Diseño Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --grafito: #262626;
-            --grafito-oscuro: #1a1a1a;
-            --dorado: #b8975a;
-            --dorado-suave: #d4af37;
-        }
-        body { 
-            background-color: var(--grafito); 
-            color: #ffffff; 
-            font-family: 'Inter', sans-serif;
-            background-image: radial-gradient(circle at 2px 2px, #333 1px, transparent 0);
-            background-size: 40px 40px;
-        }
+        :root { --grafito: #262626; --dorado: #b8975a; --oscuro: #1a1a1a; }
+        body { background-color: var(--grafito); color: white; font-family: 'Inter', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .border-gold { border-color: var(--dorado); }
         .text-gold { color: var(--dorado); }
-        .bg-gold { background-color: var(--dorado); }
-        
-        .card-mueble {
-            background-color: var(--grafito-oscuro);
-            border: 1px solid rgba(184, 151, 90, 0.3);
-            transition: all 0.3s ease;
-        }
-        .card-mueble:hover {
-            border-color: var(--dorado);
-            transform: translateY(-5px);
+        .bg-grid { 
+            background-image: radial-gradient(circle at 1px 1px, #333 1px, transparent 0);
+            background-size: 30px 30px;
         }
     </style>
 </head>
-<body class="min-h-screen">
+<body class="bg-grid">
 
-    <header class="p-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="text-gold font-serif text-xl tracking-widest border-b border-gold pb-1 italic">MUEBLES DE DISEÑO</div>
-        <nav class="flex gap-6 text-xs tracking-widest text-gray-400">
-            <a href="#" class="hover:text-gold transition">INICIO</a>
-            <a href="#" class="hover:text-gold transition">NOSOTROS</a>
-            <a href="#" class="hover:text-gold transition">CATÁLOGO</a>
-            <a href="#" class="hover:text-gold transition">PROYECTOS</a>
-            <a href="#" class="hover:text-gold transition">CONTACTO</a>
-        </nav>
-    </header>
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-white/10">
+        <div class="text-gold font-serif text-sm tracking-[0.3em] uppercase">Muebles de Diseño</div>
+        <div class="hidden md:flex gap-8 text-[10px] tracking-[0.2em] uppercase text-gray-400">
+            <a href="#" class="hover:text-gold">Inicio</a>
+            <a href="#" class="hover:text-gold">Nosotros</a>
+            <a href="#" class="hover:text-gold">Catálogo</a>
+            <a href="#" class="hover:text-gold">Proyectos</a>
+            <a href="#" class="hover:text-gold">Contacto</a>
+        </div>
+    </nav>
 
-    <div class="flex justify-center my-8">
-        <img src="r.png" alt="Grafito Muebles" class="h-32 md:h-40 object-contain drop-shadow-2xl">
+    <div class="flex justify-center py-10">
+        <img src="logo.png" alt="Grafito Muebles" class="h-32 md:h-48 object-contain">
     </div>
 
-    <section class="text-center px-4 mb-16">
-        <h1 class="text-3xl md:text-5xl font-serif text-gold mb-6 uppercase tracking-wider">Tu diseño, tu espacio, tu mueble</h1>
-        
-        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-gold p-2 rounded-lg">
-            <div class="relative group overflow-hidden rounded-md h-[400px] bg-neutral-800 flex items-center justify-center">
-                <span class="text-gray-600 italic">Foto Principal</span>
+    <h1 class="text-center text-gold font-serif text-3xl md:text-5xl tracking-[0.1em] uppercase mb-16 italic">
+        Tu diseño, tu espacio, tu mueble
+    </h1>
+
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div class="md:col-span-2 relative group border border-gold/30 p-1 rounded-xl">
+            <div class="aspect-video bg-neutral-800 rounded-lg flex items-center justify-center overflow-hidden italic text-gray-600">
+                FOTO PRINCIPAL DEL TALLER / MUEBLE
             </div>
-            
-            <div class="text-left p-6">
-                <h2 class="text-2xl font-serif text-gold mb-4 uppercase">Muebles únicos, diseñados a tu medida</h2>
-                <p class="text-gray-400 mb-8 font-light leading-relaxed">
-                    Creamos piezas que se adaptan perfectamente a tu hogar, con materiales de la más alta calidad. Contanos tu idea y la hacemos realidad.
-                </p>
-                <button class="border border-gold text-gold px-8 py-3 rounded-full hover:bg-gold hover:text-black transition-all duration-500 uppercase text-xs tracking-widest font-bold">
-                    Solicitar Presupuesto Personalizado
-                </button>
+        </div>
+        <div class="flex flex-col justify-center border-l border-gold/30 pl-8">
+            <h2 class="text-gold font-serif text-2xl uppercase mb-4 italic">Muebles únicos, diseñados a tu medida</h2>
+            <p class="text-gray-400 font-light text-sm leading-relaxed mb-6">
+                Creamos piezas que se adaptan perfectamente a tu hogar, con materiales de la más alta calidad. Contanos tu idea y la hacemos realidad.
+            </p>
+            <button class="border border-gold text-gold py-3 px-6 rounded-full text-[10px] tracking-widest uppercase hover:bg-gold hover:text-black transition">
+                Solicitar Presupuesto Personalizado
+            </button>
+        </div>
+    </div>
+
+    <section class="max-w-7xl mx-auto px-6 mb-20">
+        <h3 class="text-gold font-serif text-xl uppercase tracking-widest mb-10 text-center">Nuestro Catálogo</h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="text-center group">
+                <div class="aspect-square bg-neutral-800 border border-gold/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <span class="text-[10px] text-gray-600 italic">FOTO MUEBLE</span>
+                </div>
+                <h4 class="text-gold text-[10px] tracking-widest uppercase mb-2">Muebles de Cocina</h4>
+                <button class="text-[8px] border border-gold/50 px-4 py-1 rounded-full text-gold group-hover:bg-gold group-hover:text-black transition uppercase">Ver más</button>
+            </div>
+            <div class="text-center group">
+                <div class="aspect-square bg-neutral-800 border border-gold/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <span class="text-[10px] text-gray-600 italic">FOTO MUEBLE</span>
+                </div>
+                <h4 class="text-gold text-[10px] tracking-widest uppercase mb-2">Vestidores</h4>
+                <button class="text-[8px] border border-gold/50 px-4 py-1 rounded-full text-gold group-hover:bg-gold group-hover:text-black transition uppercase">Ver más</button>
+            </div>
+            <div class="text-center group">
+                <div class="aspect-square bg-neutral-800 border border-gold/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <span class="text-[10px] text-gray-600 italic">FOTO MUEBLE</span>
+                </div>
+                <h4 class="text-gold text-[10px] tracking-widest uppercase mb-2">Livings</h4>
+                <button class="text-[8px] border border-gold/50 px-4 py-1 rounded-full text-gold group-hover:bg-gold group-hover:text-black transition uppercase">Ver más</button>
             </div>
         </div>
     </section>
 
-    <section class="max-w-6xl mx-auto px-6 mb-20">
-        <div class="flex items-center gap-4 mb-10">
-            <h3 class="text-gold font-serif text-2xl uppercase tracking-widest">Nuestro Catálogo</h3>
-            <div class="h-[1px] bg-gold flex-grow opacity-50"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="card-mueble p-4 rounded-sm text-center">
-                <div class="h-48 bg-neutral-800 mb-4 rounded-sm flex items-center justify-center">
-                   <span class="text-xs text-gray-600 uppercase italic">Foto Cocina</span>
-                </div>
-                <h4 class="text-gold text-sm tracking-widest mb-3 uppercase">Muebles de Cocina</h4>
-                <button class="text-[10px] border border-gold px-4 py-1 rounded-full text-gold hover:bg-gold hover:text-black transition">VER MÁS</button>
-            </div>
-            <div class="card-mueble p-4 rounded-sm text-center">
-                <div class="h-48 bg-neutral-800 mb-4 rounded-sm flex items-center justify-center">
-                    <span class="text-xs text-gray-600 uppercase italic">Foto Dormitorio</span>
-                </div>
-                <h4 class="text-gold text-sm tracking-widest mb-3 uppercase">Placards y Vestidores</h4>
-                <button class="text-[10px] border border-gold px-4 py-1 rounded-full text-gold hover:bg-gold hover:text-black transition">VER MÁS</button>
-            </div>
-            <div class="card-mueble p-4 rounded-sm text-center">
-                <div class="h-48 bg-neutral-800 mb-4 rounded-sm flex items-center justify-center">
-                    <span class="text-xs text-gray-600 uppercase italic">Foto Living</span>
-                </div>
-                <h4 class="text-gold text-sm tracking-widest mb-3 uppercase">Muebles de Living</h4>
-                <button class="text-[10px] border border-gold px-4 py-1 rounded-full text-gold hover:bg-gold hover:text-black transition">VER MÁS</button>
-            </div>
-        </div>
-    </section>
-
-    <footer class="border-t border-gold bg-black/30 py-10 px-6 text-center">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-left border-l border-gold pl-6">
-                <h4 class="text-gold font-serif text-xl uppercase mb-2">¿Tenés alguna pregunta?</h4>
-                <a href="https://wa.me/5492494000000" class="flex items-center gap-3 bg-neutral-900 border border-gold px-6 py-3 rounded hover:bg-gold hover:text-black transition group">
-                    <span class="text-sm tracking-widest uppercase font-bold">Contáctanos por WhatsApp</span>
+    <footer class="border-t border-gold/30 pt-16 pb-8 px-6 bg-black/20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="border border-gold/30 p-6 rounded-lg text-center">
+                <h4 class="text-gold font-serif mb-4 uppercase text-sm tracking-widest">¿Tenés alguna pregunta?</h4>
+                <a href="https://wa.me/5492494000000" class="inline-flex items-center gap-2 border border-gold px-6 py-3 rounded-md text-xs uppercase tracking-widest hover:bg-gold hover:text-black transition">
+                    Contactanos por WhatsApp
                 </a>
             </div>
-            <div class="text-gray-500 text-[10px] tracking-[0.2em] uppercase">
-                © 2026 Grafito Muebles. Tandil, Buenos Aires.
+            <div class="col-span-2 flex flex-col justify-end text-center md:text-right">
+                <p class="text-gray-500 text-[10px] tracking-[0.2em] uppercase">
+                    © 2026 Grafito Muebles. Tandil, Buenos Aires.
+                </p>
             </div>
         </div>
     </footer>
