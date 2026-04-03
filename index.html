@@ -153,16 +153,16 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="shop-card p-6 rounded-sm text-center">
                 <div class="aspect-square mb-6 bg-gray-50 flex items-center justify-center p-4">
-                    <img src="Mueble01.png" alt="Mesa Ratona Moderna" class="max-h-full">
+                    <img src="mesaratonamoderna.png" alt="Mesa Ratona Moderna" class="max-h-full">
                 </div>
                 <h5 class="text-sm uppercase tracking-wider mb-2">Mesa Ratona Moderna</h5>
                 <p class="text-gray-500 text-sm mb-6">$ 3.500</p>
-                <button onclick="openProduct('Mesa Ratona Moderna', '3.500', 'Mueble01.png', 'Mesa ratona moderna en Melamina 18mm. Ideal para tu living.', 'https://mpago.la/2xELQkQ')" 
+                <button onclick="openProduct('Mesa Ratona Moderna', '3.500', 'mesaratonamoderna.png', 'Mesa ratona moderna en Melamina 18mm. Diseño exclusivo de Grafito.', 'https://mpago.la/2xELQkQ')" 
                         class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
                     Ver Detalle
                 </button>
             </div>
-            </div>
+        </div>
     </main>
 
     <div id="productModal" class="product-modal">
@@ -187,7 +187,7 @@
     </div>
 
     <footer class="bg-black py-10">
-        <p class="text-center text-gray-500 text-[10px] uppercase tracking-[0.3em]">Grafito Muebles - Tandil</p>
+        <p class="text-center text-gray-500 text-[10px] uppercase tracking-[0.3em]">Grafito Muebles - Tandil, Buenos Aires</p>
     </footer>
 
     <script>
@@ -205,6 +205,11 @@
         function closeProduct() {
             document.getElementById('productModal').style.display = 'none';
             document.body.style.overflow = 'auto'; 
+        }
+
+        window.onclick = function(event) {
+            let modal = document.getElementById('productModal');
+            if (event.target == modal) { closeProduct(); }
         }
     </script>
 </body>
