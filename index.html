@@ -14,134 +14,156 @@
         }
         body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #333; margin: 0; }
         
-        /* Sección Superior con Grilla */
+        /* Fondo con cuadrícula técnica */
         .hero-section {
             background-color: var(--dark);
             background-image: 
-                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            padding: 60px 0;
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            padding: 40px 0 80px 0;
         }
 
-        .text-gold { color: var(--gold); }
-        
-        /* Imagen Hero que ocupa casi todo el ancho */
+        /* Contenedor de la imagen principal */
         .hero-container {
             position: relative;
-            width: 95%; /* Ocupa casi todo el fondo, dejando margen pequeño a los costados */
-            max-width: 1400px;
+            width: 92%; /* Espacio a los costados */
+            max-width: 1300px;
             margin: 0 auto;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         .hero-image {
             width: 100%;
-            height: 500px;
-            object-fit: cover;
+            height: auto;
             display: block;
+            /* Filtro suave para que el texto resalte sin quemar la imagen */
+            filter: brightness(0.9);
         }
 
         .hero-text-overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            text-align: center;
-            background: rgba(0,0,0,0.4);
-            padding: 30px 0;
-            backdrop-filter: blur(4px);
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.2);
         }
 
-        /* Tarjetas de la Tienda */
+        /* Tarjetas de productos */
         .shop-card {
             background: white;
-            border-radius: 12px;
-            border: 1px solid #e5e5e5;
-            transition: all 0.3s ease;
+            border: 1px solid #eee;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .shop-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Botón de WhatsApp mejorado */
+        .wsp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        .wsp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+        .wsp-float svg {
+            width: 34px;
+            height: 34px;
+            fill: white;
         }
     </style>
 </head>
 <body>
 
     <header class="hero-section">
-        <div class="text-center mb-12">
-            <img src="Logo.png" alt="Grafito Muebles" class="h-20 mx-auto brightness-200 mb-4">
+        <div class="text-center mb-10">
+            <img src="Logo.png" alt="Grafito Muebles" class="h-24 mx-auto block">
         </div>
 
         <div class="hero-container">
-            <img src="principal.png" alt="Cocina Grafito" class="hero-image">
+            <img src="principal.png" alt="Diseño de Cocina Grafito" class="hero-image">
             <div class="hero-text-overlay">
-                <h2 class="text-white text-2xl md:text-4xl font-light tracking-[0.3em] uppercase">
+                <h2 class="text-white text-xl md:text-4xl font-light tracking-[0.4em] uppercase text-center px-4">
                     Tu diseño, tu espacio, tu mueble
                 </h2>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 mt-20 pb-24">
+    <main class="max-w-6xl mx-auto px-6 py-20">
         <div class="text-center mb-16">
-            <h3 class="text-gold text-2xl tracking-[0.15em] uppercase font-light">Tienda Online</h3>
-            <div class="w-12 h-px bg-gold/50 mx-auto mt-4"></div>
+            <h3 class="text-[#b8975a] text-xs uppercase tracking-[0.3em] font-semibold mb-2">Catálogo</h3>
+            <h4 class="text-2xl uppercase tracking-widest font-light">Tienda Online</h4>
+            <div class="w-10 h-px bg-[#b8975a] mx-auto mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div class="shop-card p-6 flex flex-col items-center">
-                <div class="w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-gray-50 rounded-lg">
-                    <img src="Mueble01.png" alt="Mesa Nebraska" class="max-h-full object-contain p-4">
+            <div class="shop-card p-6 rounded-sm text-center">
+                <div class="aspect-square mb-6 bg-gray-50 flex items-center justify-center p-4">
+                    <img src="Mueble01.png" alt="Mesa Nebraska" class="max-h-full">
                 </div>
-                <h4 class="text-gray-800 text-lg mb-1">Mesa Nebraska</h4>
-                <p class="text-gray-600 font-semibold mb-6">$ 85.000</p>
-                <a href="https://wa.me/5492494362196" class="w-full py-3 bg-[#333] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
-                    Ver detalle
+                <h5 class="text-sm uppercase tracking-wider mb-2">Mesa Nebraska</h5>
+                <p class="text-gray-500 text-sm mb-6">$ 85.000</p>
+                <a href="https://wa.me/5492494362196" class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
+                    Ver Detalle
                 </a>
             </div>
 
-            <div class="shop-card p-6 flex flex-col items-center">
-                <div class="w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-gray-50 rounded-lg">
-                    <img src="vestidor.png" alt="Módulo Vestidor" class="max-h-full object-contain p-4">
+            <div class="shop-card p-6 rounded-sm text-center">
+                <div class="aspect-square mb-6 bg-gray-50 flex items-center justify-center p-4">
+                    <img src="vestidor.png" alt="Módulo Vestidor" class="max-h-full">
                 </div>
-                <h4 class="text-gray-800 text-lg mb-1">Módulo Vestidor</h4>
-                <p class="text-gray-600 font-semibold mb-6">$ 120.000</p>
-                <a href="https://wa.me/5492494362196" class="w-full py-3 bg-[#333] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
-                    Ver detalle
+                <h5 class="text-sm uppercase tracking-wider mb-2">Módulo Vestidor</h5>
+                <p class="text-gray-500 text-sm mb-6">$ 120.000</p>
+                <a href="https://wa.me/5492494362196" class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
+                    Ver Detalle
                 </a>
             </div>
 
-            <div class="shop-card p-6 flex flex-col items-center">
-                <div class="w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-gray-50 rounded-lg">
-                    <img src="living.png" alt="Rack de TV" class="max-h-full object-contain p-4">
+            <div class="shop-card p-6 rounded-sm text-center">
+                <div class="aspect-square mb-6 bg-gray-50 flex items-center justify-center p-4">
+                    <img src="living.png" alt="Rack TV" class="max-h-full">
                 </div>
-                <h4 class="text-gray-800 text-lg mb-1">Rack de TV</h4>
-                <p class="text-gray-600 font-semibold mb-6">$ 95.000</p>
-                <a href="https://wa.me/5492494362196" class="w-full py-3 bg-[#333] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
-                    Ver detalle
+                <h5 class="text-sm uppercase tracking-wider mb-2">Rack de TV</h5>
+                <p class="text-gray-500 text-sm mb-6">$ 95.000</p>
+                <a href="https://wa.me/5492494362196" class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
+                    Ver Detalle
                 </a>
             </div>
 
         </div>
     </main>
 
-    <a href="https://wa.me/5492494362196" 
-       class="fixed bottom-8 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
-       target="_blank">
-        <svg viewBox="0 0 32 32" class="w-8 h-8 fill-current">
-            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.016 7.781l-2.016 7.219 7.391-1.94c2.235 1.141 4.772 1.786 7.456 1.786 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.351c-2.395 0-4.66-0.627-6.632-1.729l-0.475-0.265-4.391 1.151 1.173-4.195-0.292-0.463c-1.211-1.919-1.851-4.159-1.851-6.495 0-7.36 5.992-13.351 13.351-13.351s13.351 5.991 13.351 13.351c0 7.359-5.992 13.351-13.351 13.351zM22.067 19.336c-0.331-0.165-1.956-0.965-2.259-1.075-0.303-0.111-0.523-0.165-0.744 0.165s-0.855 1.075-1.048 1.3c-0.193 0.224-0.386 0.251-0.717 0.086-0.331-0.165-1.399-0.515-2.664-1.643-0.985-0.877-1.648-1.961-1.841-2.292-0.193-0.331-0.021-0.511 0.145-0.675 0.149-0.147 0.331-0.386 0.496-0.579s0.221-0.331 0.331-0.551c0.111-0.221 0.055-0.414-0.028-0.579s-0.744-1.793-1.020-2.455c-0.269-0.645-0.542-0.557-0.744-0.567-0.193-0.010-0.414-0.011-0.634-0.011s-0.579 0.083-0.882 0.414c-0.303 0.331-1.158 1.131-1.158 2.758s1.186 3.199 1.351 3.42c0.165 0.221 2.335 3.565 5.656 5s4.444 2.399 5.242 2.316c0.799-0.083 2.565-1.048 2.924-2.013s0.359-1.793 0.248-1.959c-0.111-0.165-0.414-0.276-0.745-0.441z"></path>
+    <a href="https://wa.me/5492494362196" class="wsp-float" target="_blank" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.412 2.503 1.111 3.492l-.717 2.618 2.68-.703c.95.524 2.037.825 3.193.826 3.182 0 5.767-2.587 5.768-5.766 0-3.18-2.586-5.766-5.767-5.766zm3.385 8.203c-.145.409-.847.767-1.161.819-.283.047-.648.084-1.637-.311-1.137-.456-1.851-1.597-1.908-1.674-.056-.077-.464-.618-.464-1.18 0-.561.294-.836.398-.944.105-.108.23-.135.307-.135.076 0 .153 0 .219.004.069.004.161-.027.252.193.091.221.312.761.341.819.028.058.047.126.009.202-.038.077-.057.126-.114.193s-.117.132-.167.197c-.053.064-.11.133-.047.242.064.108.284.469.61.759.419.373.771.488.88.543.108.055.172.046.236-.027.064-.074.274-.319.347-.428.073-.108.145-.091.245-.055.1.037.632.298.741.353.108.056.181.082.208.128.027.046.027.266-.118.675z"/>
+            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-5.514 0-10-4.486-10-10s4.486-10 10-10 10 4.486 10 10-4.486 10-10 10z"/>
         </svg>
     </a>
 
-    <footer class="bg-black py-12 px-6 border-t border-gold/20">
-        <div class="max-w-5xl mx-auto text-center">
-            <p class="text-gray-400 text-[10px] tracking-[0.3em] uppercase">
-                Grafito Muebles - Tandil, Buenos Aires
-            </p>
-        </div>
+    <footer class="bg-black py-10 border-t border-white/5">
+        <p class="text-center text-gray-500 text-[10px] uppercase tracking-[0.3em]">
+            Grafito Muebles - Tandil, Buenos Aires
+        </p>
     </footer>
 
 </body>
