@@ -68,7 +68,7 @@
         .wsp-wrapper:hover { transform: scale(1.1); }
         .wsp-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); }
 
-        /* --- ESTILOS DEL MODAL --- */
+        /* --- MODAL --- */
         .product-modal {
             display: none;
             position: fixed;
@@ -116,20 +116,13 @@
             font-weight: 600;
             transition: all 0.3s;
             margin-top: 10px;
+            text-decoration: none;
         }
 
-        .btn-mp {
-            background: var(--mp-blue);
-            color: white;
-            border: 1px solid var(--mp-blue);
-        }
+        .btn-mp { background: var(--mp-blue); color: white; border: 1px solid var(--mp-blue); }
         .btn-mp:hover { background: #007bb5; }
 
-        .btn-wa-medida {
-            background: white;
-            color: var(--dark);
-            border: 1px solid var(--dark);
-        }
+        .btn-wa-medida { background: white; color: var(--dark); border: 1px solid var(--dark); }
         .btn-wa-medida:hover { background: var(--dark); color: white; }
 
     </style>
@@ -141,7 +134,7 @@
             <img src="Logo.png" alt="Grafito Muebles" class="h-24 mx-auto block">
         </div>
         <div class="hero-container">
-            <img src="principal.png" alt="Diseño de Cocina Grafito" class="hero-image">
+            <img src="principal.png" alt="Diseño Grafito" class="hero-image">
             <div class="hero-text-overlay">
                 <h2 class="text-white text-xl md:text-4xl font-light tracking-[0.4em] uppercase text-center px-4">
                     Tu diseño, tu espacio, tu mueble
@@ -158,43 +151,18 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
             <div class="shop-card p-6 rounded-sm text-center">
                 <div class="aspect-square mb-6 bg-gray-50 flex items-center justify-center p-4">
-                    <img src="Mueble01.png" alt="Mesa Nebraska" class="max-h-full">
+                    <img src="Mueble01.png" alt="Mesa Ratona Moderna" class="max-h-full">
                 </div>
-                <h5 class="text-sm uppercase tracking-wider mb-2">Mesa Nebraska</h5>
-                <p class="text-gray-500 text-sm mb-6">$ 85.000</p>
-                <button onclick="openProduct('Mesa Nebraska', '85.000', 'Mueble01.png', 'Mesa de comedor minimalista en Melamina 18mm Roble Nebraska.', 'ID_CHECKOUT_PRO_MESA')" 
+                <h5 class="text-sm uppercase tracking-wider mb-2">Mesa Ratona Moderna</h5>
+                <p class="text-gray-500 text-sm mb-6">$ 3.500</p>
+                <button onclick="openProduct('Mesa Ratona Moderna', '3.500', 'Mueble01.png', 'Mesa ratona moderna en Melamina 18mm. Ideal para tu living.', 'https://mpago.la/2xELQkQ')" 
                         class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
                     Ver Detalle
                 </button>
             </div>
-
-            <div class="shop-card p-6 rounded-sm text-center">
-                <div class="aspect-square mb-6 bg-gray-50 flex items-center justify-center p-4">
-                    <img src="vestidor.png" alt="Módulo Vestidor" class="max-h-full">
-                </div>
-                <h5 class="text-sm uppercase tracking-wider mb-2">Módulo Vestidor</h5>
-                <p class="text-gray-500 text-sm mb-6">$ 120.000</p>
-                <button onclick="openProduct('Módulo Vestidor', '120.000', 'vestidor.png', 'Organizador premium en melamina de alta densidad.', 'ID_CHECKOUT_PRO_VESTIDOR')" 
-                        class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
-                    Ver Detalle
-                </button>
             </div>
-
-            <div class="shop-card p-6 rounded-sm text-center">
-                <div class="aspect-square mb-6 bg-gray-50 flex items-center justify-center p-4">
-                    <img src="living.png" alt="Rack TV" class="max-h-full">
-                </div>
-                <h5 class="text-sm uppercase tracking-wider mb-2">Rack de TV</h5>
-                <p class="text-gray-500 text-sm mb-6">$ 95.000</p>
-                <button onclick="openProduct('Rack de TV', '95.000', 'living.png', 'Combinación de texturas Gris Sombra y madera con sistema push-open.', 'ID_CHECKOUT_PRO_RACK')" 
-                        class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
-                    Ver Detalle
-                </button>
-            </div>
-        </div>
     </main>
 
     <div id="productModal" class="product-modal">
@@ -212,39 +180,24 @@
                     <p id="modalDesc" class="text-gray-600 text-sm leading-relaxed mb-6"></p>
                 </div>
 
-                <a id="btnComprarMP" href="#" target="_blank" class="btn-modal btn-mp">
-                    Comprar ahora con Mercado Pago
-                </a>
-                <a id="btnWAMedida" href="https://wa.me/5492494362196" target="_blank" class="btn-modal btn-wa-medida">
-                    Consultar a medida
-                </a>
+                <a id="btnComprarMP" href="#" target="_blank" class="btn-modal btn-mp">Comprar ahora</a>
+                <a id="btnWAMedida" href="https://wa.me/5492494362196" target="_blank" class="btn-modal btn-wa-medida">Consultar a medida</a>
             </div>
         </div>
     </div>
 
-    <a href="https://wa.me/5492494362196" class="wsp-wrapper" target="_blank">
-        <img src="image_0585c8.png" alt="WhatsApp" class="wsp-img">
-    </a>
-
-    <footer class="bg-black py-10 border-t border-white/5">
-        <p class="text-center text-gray-500 text-[10px] uppercase tracking-[0.3em]">
-            Grafito Muebles - Tandil, Buenos Aires
-        </p>
+    <footer class="bg-black py-10">
+        <p class="text-center text-gray-500 text-[10px] uppercase tracking-[0.3em]">Grafito Muebles - Tandil</p>
     </footer>
 
     <script>
-        function openProduct(name, price, img, desc, checkoutId) {
+        function openProduct(name, price, img, desc, mpLink) {
             document.getElementById('modalTitle').innerText = name;
             document.getElementById('modalPrice').innerText = '$ ' + price;
             document.getElementById('modalImg').src = img;
             document.getElementById('modalDesc').innerText = desc;
-            
-            // Aquí pones la URL del Checkout Pro generado para cada producto
-            // Si usas el SDK de MP, esto suele ser un link directo a la preferencia
-            document.getElementById('btnComprarMP').href = "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=" + checkoutId;
-            
-            document.getElementById('btnWAMedida').href = "https://wa.me/5492494362196?text=Hola Ale! Me interesa el mueble " + name + " pero quería consultarte por medidas personalizadas.";
-
+            document.getElementById('btnComprarMP').href = mpLink;
+            document.getElementById('btnWAMedida').href = "https://wa.me/5492494362196?text=Hola! Me interesa la " + name + " a medida.";
             document.getElementById('productModal').style.display = 'block';
             document.body.style.overflow = 'hidden'; 
         }
@@ -252,11 +205,6 @@
         function closeProduct() {
             document.getElementById('productModal').style.display = 'none';
             document.body.style.overflow = 'auto'; 
-        }
-
-        window.onclick = function(event) {
-            let modal = document.getElementById('productModal');
-            if (event.target == modal) { closeProduct(); }
         }
     </script>
 </body>
