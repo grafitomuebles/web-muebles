@@ -63,29 +63,32 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 <style>
-    .wsp-container {
+    .wsp-wrapper {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 1000;
-        /* Aplica la sombra suave que se ve en la imagen original */
-        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); 
-        transition: transform 0.3s ease;
-    }
-
-    .wsp-container:hover {
-        transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
-    }
-
-    .wsp-icon {
-        width: 65px; /* Tamaño ajustado para que se vea igual a la captura */
-        height: auto;
+        bottom: 25px; /* Ajustado para que no toque el borde */
+        right: 25px;
+        z-index: 9999; /* Para que siempre esté arriba de todo */
         display: block;
+        width: 65px; /* Tamaño fijo para que no se deforme */
+        height: 65px;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .wsp-wrapper:hover {
+        transform: scale(1.1);
+    }
+
+    .wsp-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        /* Sombra idéntica a la de la captura original */
+        filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); 
     }
 </style>
 
-<a href="https://wa.me/5492494362196" class="wsp-container" target="_blank">
-    <img src="image_0585c8.png" alt="WhatsApp Grafito" class="wsp-icon">
+<a href="https://wa.me/5492494362196" class="wsp-wrapper" target="_blank">
+    <img src="image_0585c8.png" alt="WhatsApp" class="wsp-img">
 </a>
 <body>
 
