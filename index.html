@@ -11,10 +11,10 @@
             --gold: #b8975a; 
             --dark: #111111;
             --light-bg: #f4f4f4;
+            --mp-blue: #009ee3;
         }
         body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #333; margin: 0; }
         
-        /* Fondo con cuadrícula técnica */
         .hero-section {
             background-color: var(--dark);
             background-image: 
@@ -55,7 +55,6 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
-        /* Botón de WhatsApp a la izquierda */
         .wsp-wrapper {
             position: fixed;
             bottom: 25px;
@@ -107,21 +106,32 @@
             line-height: 1;
         }
 
-        .btn-comprar-final {
-            background: var(--dark);
-            color: white;
+        .btn-modal {
             text-align: center;
-            padding: 18px;
+            padding: 16px;
             display: block;
-            margin-top: 25px;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             font-size: 11px;
-            transition: background 0.3s;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
         }
-        .btn-comprar-final:hover { background: var(--gold); }
 
-        /* --- ANCLA ESTILOS --- */
+        .btn-mp {
+            background: var(--mp-blue);
+            color: white;
+            border: 1px solid var(--mp-blue);
+        }
+        .btn-mp:hover { background: #007bb5; }
+
+        .btn-wa-medida {
+            background: white;
+            color: var(--dark);
+            border: 1px solid var(--dark);
+        }
+        .btn-wa-medida:hover { background: var(--dark); color: white; }
+
     </style>
 </head>
 <body>
@@ -155,7 +165,7 @@
                 </div>
                 <h5 class="text-sm uppercase tracking-wider mb-2">Mesa Nebraska</h5>
                 <p class="text-gray-500 text-sm mb-6">$ 85.000</p>
-                <button onclick="openProduct('Mesa Nebraska', '85.000', 'Mueble01.png', 'Mesa de comedor minimalista construida en Melamina 18mm Roble Nebraska. Estructura reforzada y diseño de líneas puras. Ideal para ambientes modernos. Medidas: 120cm x 80cm.')" 
+                <button onclick="openProduct('Mesa Nebraska', '85.000', 'Mueble01.png', 'Mesa de comedor minimalista en Melamina 18mm Roble Nebraska.', 'ID_CHECKOUT_PRO_MESA')" 
                         class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
                     Ver Detalle
                 </button>
@@ -167,7 +177,7 @@
                 </div>
                 <h5 class="text-sm uppercase tracking-wider mb-2">Módulo Vestidor</h5>
                 <p class="text-gray-500 text-sm mb-6">$ 120.000</p>
-                <button onclick="openProduct('Módulo Vestidor', '120.000', 'vestidor.png', 'Organizador de vestidor premium. Fabricado en melamina de alta densidad. Incluye barrales de aluminio y estantes regulables para máxima eficiencia de guardado.')" 
+                <button onclick="openProduct('Módulo Vestidor', '120.000', 'vestidor.png', 'Organizador premium en melamina de alta densidad.', 'ID_CHECKOUT_PRO_VESTIDOR')" 
                         class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
                     Ver Detalle
                 </button>
@@ -179,7 +189,7 @@
                 </div>
                 <h5 class="text-sm uppercase tracking-wider mb-2">Rack de TV</h5>
                 <p class="text-gray-500 text-sm mb-6">$ 95.000</p>
-                <button onclick="openProduct('Rack de TV', '95.000', 'living.png', 'Mueble de TV flotante o con base. Combinación de texturas Gris Sombra y madera. Gestión de cables oculta y puertas con sistema push-open.')" 
+                <button onclick="openProduct('Rack de TV', '95.000', 'living.png', 'Combinación de texturas Gris Sombra y madera con sistema push-open.', 'ID_CHECKOUT_PRO_RACK')" 
                         class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
                     Ver Detalle
                 </button>
@@ -200,21 +210,13 @@
                 <div class="border-t border-gray-100 py-6">
                     <h3 class="text-[10px] uppercase tracking-widest font-bold mb-3 text-gray-400">Descripción Técnica</h3>
                     <p id="modalDesc" class="text-gray-600 text-sm leading-relaxed mb-6"></p>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <h4 class="text-[10px] uppercase font-bold mb-1">Material</h4>
-                            <p class="text-xs text-gray-500">Melamina 18mm</p>
-                        </div>
-                        <div>
-                            <h4 class="text-[10px] uppercase font-bold mb-1">Envío</h4>
-                            <p class="text-xs text-gray-500">Tandil y zona</p>
-                        </div>
-                    </div>
                 </div>
 
-                <a href="https://wa.me/5492494362196" class="btn-comprar-final">
-                    Consultar Disponibilidad
+                <a id="btnComprarMP" href="#" target="_blank" class="btn-modal btn-mp">
+                    Comprar ahora con Mercado Pago
+                </a>
+                <a id="btnWAMedida" href="https://wa.me/5492494362196" target="_blank" class="btn-modal btn-wa-medida">
+                    Consultar a medida
                 </a>
             </div>
         </div>
@@ -231,11 +233,18 @@
     </footer>
 
     <script>
-        function openProduct(name, price, img, desc) {
+        function openProduct(name, price, img, desc, checkoutId) {
             document.getElementById('modalTitle').innerText = name;
             document.getElementById('modalPrice').innerText = '$ ' + price;
             document.getElementById('modalImg').src = img;
             document.getElementById('modalDesc').innerText = desc;
+            
+            // Aquí pones la URL del Checkout Pro generado para cada producto
+            // Si usas el SDK de MP, esto suele ser un link directo a la preferencia
+            document.getElementById('btnComprarMP').href = "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=" + checkoutId;
+            
+            document.getElementById('btnWAMedida').href = "https://wa.me/5492494362196?text=Hola Ale! Me interesa el mueble " + name + " pero quería consultarte por medidas personalizadas.";
+
             document.getElementById('productModal').style.display = 'block';
             document.body.style.overflow = 'hidden'; 
         }
