@@ -12,27 +12,36 @@
             --dark: #111111;
             --light-bg: #f4f4f4;
         }
-        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #333; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #333; margin: 0; }
         
-        /* Sección Superior Oscura con Grilla */
-        .hero-dark {
+        /* Sección Superior con Grilla */
+        .hero-section {
             background-color: var(--dark);
             background-image: 
                 linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
             background-size: 30px 30px;
+            padding: 60px 0;
         }
 
         .text-gold { color: var(--gold); }
-        .border-gold { border-color: var(--gold); }
         
-        /* Imagen Hero con el texto superpuesto */
+        /* Imagen Hero que ocupa casi todo el ancho */
         .hero-container {
             position: relative;
-            width: 100%;
-            max-width: 1000px;
+            width: 95%; /* Ocupa casi todo el fondo, dejando margen pequeño a los costados */
+            max-width: 1400px;
             margin: 0 auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
         .hero-text-overlay {
             position: absolute;
             top: 50%;
@@ -40,9 +49,9 @@
             transform: translate(-50%, -50%);
             width: 100%;
             text-align: center;
-            background: rgba(0,0,0,0.2);
-            padding: 20px 0;
-            backdrop-filter: blur(2px);
+            background: rgba(0,0,0,0.4);
+            padding: 30px 0;
+            backdrop-filter: blur(4px);
         }
 
         /* Tarjetas de la Tienda */
@@ -60,51 +69,28 @@
 </head>
 <body>
 
-    <header class="hero-dark pt-12 pb-20 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <div class="mb-8">
-                <img src="Logo.png" alt="Grafito Muebles" class="h-20 mx-auto brightness-200">
-            </div>
+    <header class="hero-section">
+        <div class="text-center mb-12">
+            <img src="Logo.png" alt="Grafito Muebles" class="h-20 mx-auto brightness-200 mb-4">
+        </div>
 
-            <div class="mb-16">
-                <p class="text-gold text-[10px] tracking-[0.3em] uppercase mb-10">Como lo hacemos</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                    <div class="flex flex-col items-center gap-3">
-                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">⊕</div>
-                        <span class="text-white text-[10px] uppercase tracking-widest">Entrevista inicial</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3">
-                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">📋</div>
-                        <span class="text-white text-[10px] uppercase tracking-widest">Proyecto</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3">
-                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">📏</div>
-                        <span class="text-white text-[10px] uppercase tracking-widest">Medidas</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-3">
-                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">📐</div>
-                        <span class="text-white text-[10px] uppercase tracking-widest">Presupuesto</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-container shadow-2xl rounded-sm overflow-hidden">
-                <img src="principal.png" alt="Cocina Grafito" class="w-full object-cover h-[400px]">
-                <div class="hero-text-overlay">
-                    <h2 class="text-white text-xl md:text-3xl font-light tracking-[0.2em] uppercase">
-                        Tu diseño, tu espacio, tu mueble
-                    </h2>
-                </div>
+        <div class="hero-container">
+            <img src="principal.png" alt="Cocina Grafito" class="hero-image">
+            <div class="hero-text-overlay">
+                <h2 class="text-white text-2xl md:text-4xl font-light tracking-[0.3em] uppercase">
+                    Tu diseño, tu espacio, tu mueble
+                </h2>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 -mt-10 pb-24">
-        <div class="text-center mb-12">
+    <main class="max-w-6xl mx-auto px-6 mt-20 pb-24">
+        <div class="text-center mb-16">
             <h3 class="text-gold text-2xl tracking-[0.15em] uppercase font-light">Tienda Online</h3>
+            <div class="w-12 h-px bg-gold/50 mx-auto mt-4"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             
             <div class="shop-card p-6 flex flex-col items-center">
                 <div class="w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-gray-50 rounded-lg">
@@ -112,7 +98,7 @@
                 </div>
                 <h4 class="text-gray-800 text-lg mb-1">Mesa Nebraska</h4>
                 <p class="text-gray-600 font-semibold mb-6">$ 85.000</p>
-                <a href="LINK_DE_PAGO_1" class="w-full py-3 bg-[#444] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
+                <a href="https://wa.me/5492494362196" class="w-full py-3 bg-[#333] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
                     Ver detalle
                 </a>
             </div>
@@ -123,7 +109,7 @@
                 </div>
                 <h4 class="text-gray-800 text-lg mb-1">Módulo Vestidor</h4>
                 <p class="text-gray-600 font-semibold mb-6">$ 120.000</p>
-                <a href="LINK_DE_PAGO_2" class="w-full py-3 bg-[#444] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
+                <a href="https://wa.me/5492494362196" class="w-full py-3 bg-[#333] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
                     Ver detalle
                 </a>
             </div>
@@ -134,7 +120,7 @@
                 </div>
                 <h4 class="text-gray-800 text-lg mb-1">Rack de TV</h4>
                 <p class="text-gray-600 font-semibold mb-6">$ 95.000</p>
-                <a href="LINK_DE_PAGO_3" class="w-full py-3 bg-[#444] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
+                <a href="https://wa.me/5492494362196" class="w-full py-3 bg-[#333] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
                     Ver detalle
                 </a>
             </div>
@@ -142,11 +128,18 @@
         </div>
     </main>
 
+    <a href="https://wa.me/5492494362196" 
+       class="fixed bottom-8 right-8 bg-[#25d366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50"
+       target="_blank">
+        <svg viewBox="0 0 32 32" class="w-8 h-8 fill-current">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.016 7.781l-2.016 7.219 7.391-1.94c2.235 1.141 4.772 1.786 7.456 1.786 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.351c-2.395 0-4.66-0.627-6.632-1.729l-0.475-0.265-4.391 1.151 1.173-4.195-0.292-0.463c-1.211-1.919-1.851-4.159-1.851-6.495 0-7.36 5.992-13.351 13.351-13.351s13.351 5.991 13.351 13.351c0 7.359-5.992 13.351-13.351 13.351zM22.067 19.336c-0.331-0.165-1.956-0.965-2.259-1.075-0.303-0.111-0.523-0.165-0.744 0.165s-0.855 1.075-1.048 1.3c-0.193 0.224-0.386 0.251-0.717 0.086-0.331-0.165-1.399-0.515-2.664-1.643-0.985-0.877-1.648-1.961-1.841-2.292-0.193-0.331-0.021-0.511 0.145-0.675 0.149-0.147 0.331-0.386 0.496-0.579s0.221-0.331 0.331-0.551c0.111-0.221 0.055-0.414-0.028-0.579s-0.744-1.793-1.020-2.455c-0.269-0.645-0.542-0.557-0.744-0.567-0.193-0.010-0.414-0.011-0.634-0.011s-0.579 0.083-0.882 0.414c-0.303 0.331-1.158 1.131-1.158 2.758s1.186 3.199 1.351 3.42c0.165 0.221 2.335 3.565 5.656 5s4.444 2.399 5.242 2.316c0.799-0.083 2.565-1.048 2.924-2.013s0.359-1.793 0.248-1.959c-0.111-0.165-0.414-0.276-0.745-0.441z"></path>
+        </svg>
+    </a>
+
     <footer class="bg-black py-12 px-6 border-t border-gold/20">
         <div class="max-w-5xl mx-auto text-center">
-            <div class="w-16 h-px bg-gold/50 mx-auto mb-8"></div>
             <p class="text-gray-400 text-[10px] tracking-[0.3em] uppercase">
-                Alejandro G. & Thomas B. - Tandil, Argentina
+                Grafito Muebles - Tandil, Buenos Aires
             </p>
         </div>
     </footer>
