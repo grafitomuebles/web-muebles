@@ -3,147 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grafito Muebles | Tienda Oficial</title>
+    <title>Grafito Muebles | Diseño y Fabricación</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --grafito: #1a1a1a; --dorado: #b8975a; --gris-sombra: #262626; }
-        body { background-color: var(--grafito); color: white; font-family: 'Inter', sans-serif; }
-        .font-serif { font-family: 'Playfair Display', serif; }
-        .text-gold { color: var(--dorado); }
-        .bg-gold { background-color: var(--dorado); }
-        .border-gold { border-color: var(--dorado); }
+        :root { 
+            --gold: #b8975a; 
+            --dark: #111111;
+            --light-bg: #f4f4f4;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-bg); color: #333; }
         
-        /* Efecto de fondo sutil */
-        .bg-grid { 
-            background-image: radial-gradient(circle at 1px 1px, #333 1px, transparent 0);
-            background-size: 40px 40px;
+        /* Sección Superior Oscura con Grilla */
+        .hero-dark {
+            background-color: var(--dark);
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
-        /* Animaciones para las tarjetas de producto */
-        .product-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        .text-gold { color: var(--gold); }
+        .border-gold { border-color: var(--gold); }
+        
+        /* Imagen Hero con el texto superpuesto */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--dorado) !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        .hero-text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            padding: 20px 0;
+            backdrop-filter: blur(2px);
+        }
+
+        /* Tarjetas de la Tienda */
+        .shop-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e5e5e5;
+            transition: all 0.3s ease;
+        }
+        .shop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body class="bg-grid">
+<body>
 
-    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto border-b border-white/10">
-        <div class="text-gold font-serif text-sm tracking-[0.3em] uppercase">Grafito Muebles</div>
-        <div class="hidden md:flex gap-8 text-[10px] tracking-[0.2em] uppercase text-gray-400">
-            <a href="#" class="hover:text-gold transition">Inicio</a>
-            <a href="#tienda" class="hover:text-gold transition">Tienda</a>
-            <a href="#" class="hover:text-gold transition">Proyectos</a>
-            <a href="#" class="hover:text-gold transition">Contacto</a>
+    <header class="hero-dark pt-12 pb-20 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="mb-8">
+                <img src="Logo.png" alt="Grafito Muebles" class="h-20 mx-auto brightness-200">
+            </div>
+
+            <div class="mb-16">
+                <p class="text-gold text-[10px] tracking-[0.3em] uppercase mb-10">Como lo hacemos</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">⊕</div>
+                        <span class="text-white text-[10px] uppercase tracking-widest">Entrevista inicial</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">📋</div>
+                        <span class="text-white text-[10px] uppercase tracking-widest">Proyecto</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">📏</div>
+                        <span class="text-white text-[10px] uppercase tracking-widest">Medidas</span>
+                    </div>
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="w-10 h-10 border border-gold/50 rounded-full flex items-center justify-center text-gold text-lg">📐</div>
+                        <span class="text-white text-[10px] uppercase tracking-widest">Presupuesto</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-container shadow-2xl rounded-sm overflow-hidden">
+                <img src="principal.png" alt="Cocina Grafito" class="w-full object-cover h-[400px]">
+                <div class="hero-text-overlay">
+                    <h2 class="text-white text-xl md:text-3xl font-light tracking-[0.2em] uppercase">
+                        Tu diseño, tu espacio, tu mueble
+                    </h2>
+                </div>
+            </div>
         </div>
-    </nav>
+    </header>
 
-    <div class="flex justify-center py-10">
-        <img src="Logo.png" alt="Grafito Muebles" class="h-32 md:h-48 object-contain transition hover:scale-105 duration-700">
-    </div>
-
-    <h1 class="text-center text-gold font-serif text-3xl md:text-5xl tracking-[0.1em] uppercase mb-16 italic">
-        Tu diseño, tu espacio, tu mueble
-    </h1>
-
-    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-        <div class="md:col-span-2 border border-white/10 p-1 rounded-xl bg-black/20">
-            <img src="principal.png" alt="Mueble Principal Grafito" class="w-full h-full object-cover rounded-lg">
+    <main class="max-w-6xl mx-auto px-6 -mt-10 pb-24">
+        <div class="text-center mb-12">
+            <h3 class="text-gold text-2xl tracking-[0.15em] uppercase font-light">Tienda Online</h3>
         </div>
-        <div class="flex flex-col justify-center border-l border-gold/30 pl-8">
-            <h2 class="text-gold font-serif text-2xl uppercase mb-4 italic">Diseño Industrial Premium</h2>
-            <p class="text-gray-400 font-light text-sm leading-relaxed mb-6">
-                Combinamos texturas como el <b>Nebraska Oak</b> y acabados <b>Gris Sombra</b> para crear piezas atemporales. 100% fabricación nacional con estándar europeo.
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="shop-card p-6 flex flex-col items-center">
+                <div class="w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-gray-50 rounded-lg">
+                    <img src="Mueble01.png" alt="Mesa Nebraska" class="max-h-full object-contain p-4">
+                </div>
+                <h4 class="text-gray-800 text-lg mb-1">Mesa Nebraska</h4>
+                <p class="text-gray-600 font-semibold mb-6">$ 85.000</p>
+                <a href="LINK_DE_PAGO_1" class="w-full py-3 bg-[#444] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
+                    Ver detalle
+                </a>
+            </div>
+
+            <div class="shop-card p-6 flex flex-col items-center">
+                <div class="w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-gray-50 rounded-lg">
+                    <img src="vestidor.png" alt="Módulo Vestidor" class="max-h-full object-contain p-4">
+                </div>
+                <h4 class="text-gray-800 text-lg mb-1">Módulo Vestidor</h4>
+                <p class="text-gray-600 font-semibold mb-6">$ 120.000</p>
+                <a href="LINK_DE_PAGO_2" class="w-full py-3 bg-[#444] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
+                    Ver detalle
+                </a>
+            </div>
+
+            <div class="shop-card p-6 flex flex-col items-center">
+                <div class="w-full aspect-square mb-6 overflow-hidden flex items-center justify-center bg-gray-50 rounded-lg">
+                    <img src="living.png" alt="Rack de TV" class="max-h-full object-contain p-4">
+                </div>
+                <h4 class="text-gray-800 text-lg mb-1">Rack de TV</h4>
+                <p class="text-gray-600 font-semibold mb-6">$ 95.000</p>
+                <a href="LINK_DE_PAGO_3" class="w-full py-3 bg-[#444] text-white text-[10px] uppercase tracking-widest rounded-md hover:bg-black transition text-center">
+                    Ver detalle
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-black py-12 px-6 border-t border-gold/20">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="w-16 h-px bg-gold/50 mx-auto mb-8"></div>
+            <p class="text-gray-400 text-[10px] tracking-[0.3em] uppercase">
+                Alejandro G. & Thomas B. - Tandil, Argentina
             </p>
-            <a href="https://wa.me/5492494362196" class="border border-gold text-gold py-3 px-6 rounded-full text-[10px] tracking-widest uppercase hover:bg-gold hover:text-black transition text-center">
-                Solicitar Presupuesto
-            </a>
-        </div>
-    </div>
-
-    <section id="tienda" class="max-w-7xl mx-auto px-6 mb-32">
-        <div class="flex flex-col items-center mb-12">
-            <h3 class="text-gold font-serif text-3xl uppercase tracking-[0.2em] mb-2">Tienda Online</h3>
-            <div class="h-px w-20 bg-gold"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            
-            <div class="product-card bg-[#151515] border border-white/5 rounded-sm overflow-hidden flex flex-col">
-                <div class="h-64 overflow-hidden">
-                    <img src="Mueble01.png" alt="Mesa Nebraska" class="w-full h-full object-cover transition duration-700 hover:scale-110">
-                </div>
-                <div class="p-8 text-center flex-grow">
-                    <h4 class="text-gold font-serif text-xl mb-2 italic">Mesa Nebraska</h4>
-                    <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Melamina 18mm Egger</p>
-                    <p class="text-white text-2xl font-light mb-6">$ 85.000</p>
-                    <a href="LINK_DE_PAGO_1" class="block w-full bg-gold text-black py-4 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white transition">Comprar Ahora</a>
-                </div>
-            </div>
-
-            <div class="product-card bg-[#151515] border border-white/5 rounded-sm overflow-hidden flex flex-col">
-                <div class="h-64 overflow-hidden">
-                    <img src="vestidor.png" alt="Vestidor" class="w-full h-full object-cover transition duration-700 hover:scale-110">
-                </div>
-                <div class="p-8 text-center flex-grow">
-                    <h4 class="text-gold font-serif text-xl mb-2 italic">Módulo Vestidor</h4>
-                    <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Optimización de espacio</p>
-                    <p class="text-white text-2xl font-light mb-6">$ 120.000</p>
-                    <a href="LINK_DE_PAGO_2" class="block w-full bg-gold text-black py-4 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white transition">Comprar Ahora</a>
-                </div>
-            </div>
-
-            <div class="product-card bg-[#151515] border border-white/5 rounded-sm overflow-hidden flex flex-col">
-                <div class="h-64 overflow-hidden">
-                    <img src="living.png" alt="Rack Living" class="w-full h-full object-cover transition duration-700 hover:scale-110">
-                </div>
-                <div class="p-8 text-center flex-grow">
-                    <h4 class="text-gold font-serif text-xl mb-2 italic">Rack de TV</h4>
-                    <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Gris Sombra & Madera</p>
-                    <p class="text-white text-2xl font-light mb-6">$ 95.000</p>
-                    <a href="LINK_DE_PAGO_3" class="block w-full bg-gold text-black py-4 text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-white transition">Comprar Ahora</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/10 pt-12 text-center text-gray-500">
-            <div class="flex flex-col items-center gap-2">
-                <span class="text-gold text-2xl">🛡️</span>
-                <p class="text-[10px] tracking-widest uppercase">Compra 100% Protegida</p>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-                <span class="text-gold text-2xl">💳</span>
-                <p class="text-[10px] tracking-widest uppercase">Hasta 12 cuotas con Mercado Pago</p>
-            </div>
-            <div class="flex flex-col items-center gap-2">
-                <span class="text-gold text-2xl">🚛</span>
-                <p class="text-[10px] tracking-widest uppercase">Envíos a todo el país</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="border-t border-white/10 pt-16 pb-8 px-6 bg-black/40">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <h4 class="text-gold font-serif mb-2 uppercase text-xs tracking-widest">¿Tenés un proyecto?</h4>
-                <p class="text-gray-500 text-[10px] uppercase tracking-widest">Alejandro G. & Thomas B.</p>
-            </div>
-            
-            <a href="https://wa.me/5492494362196" class="bg-white/5 border border-gold/50 text-gold px-10 py-4 rounded-sm text-[10px] font-bold uppercase tracking-widest hover:bg-gold hover:text-black transition">
-                Hablar con un Diseñador
-            </a>
-
-            <div class="text-center md:text-right">
-                <p class="text-gray-600 text-[9px] tracking-[0.3em] uppercase">
-                    © 2026 Grafito Muebles. Tandil, Bs.As.
-                </p>
-            </div>
         </div>
     </footer>
 
