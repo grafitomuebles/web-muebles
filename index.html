@@ -55,21 +55,8 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
-        .wsp-wrapper {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            z-index: 9999;
-            display: block;
-            width: 65px;
-            height: 65px;
-            transition: transform 0.2s ease-in-out;
-        }
-        .wsp-wrapper:hover { transform: scale(1.1); }
-        .wsp-img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.4)); }
-
-        /* --- MODAL --- */
-        .product-modal {
+        /* --- MODALES --- */
+        .custom-modal {
             display: none;
             position: fixed;
             inset: 0;
@@ -86,14 +73,7 @@
             margin: 40px auto;
             border-radius: 2px;
             position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
             padding: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .modal-content { grid-template-columns: 1fr; padding: 20px; margin: 10px auto; }
         }
 
         .close-modal {
@@ -103,36 +83,46 @@
             font-size: 30px;
             cursor: pointer;
             color: #333;
-            line-height: 1;
+            z-index: 10;
         }
 
-        .btn-modal {
-            text-align: center;
-            padding: 16px;
-            display: block;
+        .btn-black {
+            background: black;
+            color: white;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 10px;
+            padding: 16px;
             transition: all 0.3s;
-            margin-top: 10px;
-            text-decoration: none;
+            text-align: center;
+            display: block;
+            width: 100%;
         }
+        .btn-black:hover { background: var(--gold); }
 
-        .btn-mp { background: var(--mp-blue); color: white; border: 1px solid var(--mp-blue); }
-        .btn-mp:hover { background: #007bb5; }
-
-        .btn-wa-medida { background: white; color: var(--dark); border: 1px solid var(--dark); }
-        .btn-wa-medida:hover { background: var(--dark); color: white; }
+        input {
+            width: 100%;
+            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+            outline: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        input:focus { border-color: var(--gold); }
 
     </style>
 </head>
 <body>
 
     <header class="hero-section">
-        <div class="text-center mb-10">
-            <img src="Logo.png" alt="Grafito Muebles" class="h-24 mx-auto block">
+        <div class="flex justify-between items-center max-w-7xl mx-auto px-10 mb-10">
+            <div class="w-24"></div> <img src="Logo.png" alt="Grafito Muebles" class="h-20">
+            <button onclick="toggleAccount()" class="text-white text-[10px] uppercase tracking-widest border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition">
+                Mi Cuenta
+            </button>
         </div>
+        
         <div class="hero-container">
             <img src="principal.png" alt="Diseño Grafito" class="hero-image">
             <div class="hero-text-overlay">
@@ -157,59 +147,143 @@
                 </div>
                 <h5 class="text-sm uppercase tracking-wider mb-2">Mesa Ratona Moderna</h5>
                 <p class="text-gray-500 text-sm mb-6">$ 3.500</p>
-                <button onclick="openProduct('Mesa Ratona Moderna', '3.500', 'mesaratonamoderna.png', 'Mesa ratona moderna en Melamina 18mm. Diseño exclusivo de Grafito.', 'https://mpago.la/2xELQkQ')" 
-                        class="inline-block w-full py-3 bg-black text-white text-[10px] uppercase tracking-widest hover:bg-[#b8975a] transition">
+                <button onclick="openProduct('Mesa Ratona Moderna', '3.500', 'mesaratonamoderna.png', 'Mesa ratona moderna en Melamina 18mm.', 'https://mpago.la/2xELQkQ')" 
+                        class="btn-black">
                     Ver Detalle
                 </button>
             </div>
         </div>
     </main>
 
-    <div id="productModal" class="product-modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeProduct()">&times;</span>
-            <div class="product-gallery">
-                <img id="modalImg" src="" alt="" class="w-full h-auto rounded shadow-sm">
-            </div>
-            <div class="product-info flex flex-col justify-center">
-                <h2 id="modalTitle" class="text-3xl uppercase tracking-tighter mb-2 font-semibold"></h2>
+    <div id="productModal" class="custom-modal">
+        <div class="modal-content max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10">
+            <span class="close-modal" onclick="closeModal('productModal')">&times;</span>
+            <img id="modalImg" src="" class="w-full h-auto rounded">
+            <div class="flex flex-col justify-center">
+                <h2 id="modalTitle" class="text-3xl uppercase font-semibold mb-2"></h2>
                 <p id="modalPrice" class="text-[#b8975a] text-2xl mb-8 font-light"></p>
-                
-                <div class="border-t border-gray-100 py-6">
-                    <h3 class="text-[10px] uppercase tracking-widest font-bold mb-3 text-gray-400">Descripción Técnica</h3>
-                    <p id="modalDesc" class="text-gray-600 text-sm leading-relaxed mb-6"></p>
-                </div>
+                <p id="modalDesc" class="text-gray-600 text-sm mb-8 leading-relaxed"></p>
+                <a id="btnComprarMP" href="#" target="_blank" class="btn-black bg-[#009ee3] mb-4">Comprar ahora</a>
+                <a id="btnWAMedida" href="#" target="_blank" class="btn-black bg-white !text-black border border-black">Consultar a medida</a>
+            </div>
+        </div>
+    </div>
 
-                <a id="btnComprarMP" href="#" target="_blank" class="btn-modal btn-mp">Comprar ahora</a>
-                <a id="btnWAMedida" href="https://wa.me/5492494362196" target="_blank" class="btn-modal btn-wa-medida">Consultar a medida</a>
+    <div id="accountModal" class="custom-modal">
+        <div class="modal-content max-w-md">
+            <span class="close-modal" onclick="closeModal('accountModal')">&times;</span>
+            
+            <div id="authView">
+                <h2 class="text-xl uppercase tracking-widest mb-8 font-light text-center">Ingreso Clientes</h2>
+                <input type="email" id="authEmail" placeholder="Email">
+                <input type="password" id="authPass" placeholder="Contraseña">
+                <button onclick="handleAuth('login')" class="btn-black mb-4">Entrar</button>
+                <button onclick="handleAuth('register')" class="text-[10px] uppercase tracking-widest text-gray-400 w-full text-center hover:text-black transition">Crear cuenta nueva</button>
+            </div>
+
+            <div id="profileView" class="hidden">
+                <h2 class="text-xl uppercase tracking-widest mb-2 font-light">Mi Perfil</h2>
+                <p id="userWelcome" class="text-[10px] text-zinc-400 uppercase mb-8 tracking-widest"></p>
+                
+                <label class="text-[9px] uppercase text-zinc-400 tracking-widest">Teléfono de contacto</label>
+                <input type="text" id="userPhone" placeholder="Ej: 2494...">
+                
+                <label class="text-[9px] uppercase text-zinc-400 tracking-widest">Dirección en Tandil / Ciudad</label>
+                <input type="text" id="userAddress" placeholder="Calle y altura">
+                
+                <button onclick="saveUserData()" class="btn-black mb-6">Guardar Datos</button>
+                <button onclick="logout()" class="text-red-400 text-[10px] uppercase tracking-widest w-full text-center">Cerrar Sesión</button>
             </div>
         </div>
     </div>
 
     <footer class="bg-black py-10">
-        <p class="text-center text-gray-500 text-[10px] uppercase tracking-[0.3em]">Grafito Muebles - Tandil, Buenos Aires</p>
+        <p class="text-center text-gray-500 text-[10px] uppercase tracking-[0.3em]">Grafito Muebles - Tandil</p>
     </footer>
 
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCJ7AZGQNxlr64sjctz_Htuq-SgaR8Ji2s",
+            authDomain: "grafito-muebles.firebaseapp.com",
+            projectId: "grafito-muebles",
+            storageBucket: "grafito-muebles.firebasestorage.app",
+            messagingSenderId: "16857272065",
+            appId: "1:16857272065:web:2641ab3f8c2acf9e9f1500"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Auth Logic
+        window.handleAuth = async (type) => {
+            const email = document.getElementById('authEmail').value;
+            const pass = document.getElementById('authPass').value;
+            try {
+                if(type === 'register') await createUserWithEmailAndPassword(auth, email, pass);
+                else await signInWithEmailAndPassword(auth, email, pass);
+            } catch (e) { alert("Error: " + e.message); }
+        };
+
+        window.logout = () => signOut(auth);
+
+        window.saveUserData = async () => {
+            const user = auth.currentUser;
+            const data = {
+                phone: document.getElementById('userPhone').value,
+                address: document.getElementById('userAddress').value
+            };
+            await setDoc(doc(db, "usuarios", user.uid), data, { merge: true });
+            alert("Datos actualizados correctamente.");
+        };
+
+        onAuthStateChanged(auth, async (user) => {
+            const authView = document.getElementById('authView');
+            const profileView = document.getElementById('profileView');
+            if (user) {
+                authView.classList.add('hidden');
+                profileView.classList.remove('hidden');
+                document.getElementById('userWelcome').innerText = "Sesión iniciada: " + user.email;
+                const snap = await getDoc(doc(db, "usuarios", user.uid));
+                if(snap.exists()){
+                    document.getElementById('userPhone').value = snap.data().phone || "";
+                    document.getElementById('userAddress').value = snap.data().address || "";
+                }
+            } else {
+                authView.classList.remove('hidden');
+                profileView.classList.add('hidden');
+            }
+        });
+    </script>
+
     <script>
+        // UI Logic
         function openProduct(name, price, img, desc, mpLink) {
             document.getElementById('modalTitle').innerText = name;
             document.getElementById('modalPrice').innerText = '$ ' + price;
             document.getElementById('modalImg').src = img;
             document.getElementById('modalDesc').innerText = desc;
             document.getElementById('btnComprarMP').href = mpLink;
-            document.getElementById('btnWAMedida').href = "https://wa.me/5492494362196?text=Hola! Me interesa la " + name + " a medida.";
+            document.getElementById('btnWAMedida').href = "https://wa.me/5492494362196?text=Hola! Me interesa la " + name;
             document.getElementById('productModal').style.display = 'block';
-            document.body.style.overflow = 'hidden'; 
         }
 
-        function closeProduct() {
-            document.getElementById('productModal').style.display = 'none';
-            document.body.style.overflow = 'auto'; 
+        function toggleAccount() {
+            document.getElementById('accountModal').style.display = 'block';
         }
 
-        window.onclick = function(event) {
-            let modal = document.getElementById('productModal');
-            if (event.target == modal) { closeProduct(); }
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        window.onclick = (event) => {
+            if (event.target.className === 'custom-modal') {
+                event.target.style.display = 'none';
+            }
         }
     </script>
 </body>
